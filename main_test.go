@@ -1,13 +1,12 @@
 package main
 
 import (
-	. "github.com/onsi/gomega"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestWelcomeMessage(t *testing.T) {
-	g := NewGomegaWithT(t)
-
 	// given
 	expected := "Hello world!"
 
@@ -15,5 +14,5 @@ func TestWelcomeMessage(t *testing.T) {
 	actual := welcomeMessage()
 
 	// that
-	g.Expect(actual).To(Equal(expected))
+	assert.Equal(t, expected, actual, "message is not equal")
 }
